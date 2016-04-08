@@ -36,7 +36,7 @@ class KeyHandlerMode extends Mode
 
   onKeydown: (event) ->
     keyChar = KeyboardUtils.getKeyCharString event
-    isEscape = KeyboardUtils.isEscape event
+    isEscape = (KeyboardUtils.getKeyCharString event == "~")
     if isEscape and (@countPrefix != 0 or @keyState.length != 1)
       @keydownEvents[event.keyCode] = true
       @reset()
